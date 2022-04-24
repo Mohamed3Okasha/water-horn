@@ -493,7 +493,7 @@ footer ul li img{
 @media only screen and (max-width: 375px){
     #intro-section{
         background: url('../assets/bg-pattern-intro-mobile.svg'), linear-gradient(var(--EarthyGreen), var(--EarthyGreen));
-        background-position: 40% 30%;
+        background-position: 100% 100%;
     }
     .intro-content h1{
         font-size: 33px;
