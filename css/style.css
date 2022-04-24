@@ -494,6 +494,8 @@ footer ul li img{
     #intro-section{
         background: url('../assets/bg-pattern-intro-mobile.svg'), linear-gradient(var(--EarthyGreen), var(--EarthyGreen));
         background-position: 100% 100%;
+        background-repeat: no-repeat;
+        background-size: auto;
     }
     .intro-content h1{
         font-size: 33px;
