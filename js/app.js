@@ -8,24 +8,24 @@ const smallMenuSign = header.querySelector('.smallMenu');
 let hamburgerSign = smallMenuSign.querySelector('img');
 
 /* main functions */
-//add menu lements in the footer dynamically
-( function () {
-    for(b of headerItems){
-        console.log(b);
-        let child = b.parentElement.lastElementChild;
-        let newUlElement = document.createElement(b.parentElement.tagName);
-        let mainLiElement = b.cloneNode(true);
-        newUlElement.appendChild(mainLiElement);
-        let items = child.querySelectorAll('.dropdown-content li');
-        for(i of items){
-            let newLiElement = i.cloneNode(true);
-            newUlElement.appendChild(newLiElement);
-        }
-        fragment.appendChild(newUlElement);
-    }
-    footerEle.append(fragment);
+//add menu elements in the footer dynamically
+// ( function () {
+//     for(b of headerItems){
+//         console.log(b);
+//         let child = b.parentElement.lastElementChild;
+//         let newUlElement = document.createElement(b.parentElement.tagName);
+//         let mainLiElement = b.cloneNode(true);
+//         newUlElement.appendChild(mainLiElement);
+//         let items = child.querySelectorAll('.dropdown-content li');
+//         for(i of items){
+//             let newLiElement = i.cloneNode(true);
+//             newUlElement.appendChild(newLiElement);
+//         }
+//         fragment.appendChild(newUlElement);
+//     }
+//     footerEle.append(fragment);
     
-} ());
+// } ());
 
 /* helper functions */
 //create a small menue for mobile & tablet on hamburger icon click & delete on close icon click
@@ -52,3 +52,30 @@ function showSmallMenu(){
 
 //mobile menu icon on click creation
 hamburgerSign.addEventListener('click', showSmallMenu);
+
+
+const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+const apiKey = ',us&appid=fff7d29665e8627f5af612d4dbccbec9&units=imperial';
+// zipCode = document.querySelector('#zip').value;
+const zipCode = 94040;
+let data;
+const getWeatherData = async ()=> {
+    console.log(baseUrl+zipCode+apiKey);
+    const res = await fetch(baseUrl+zipCode+apiKey);
+    try {
+        data = await res.json();
+        console.log('client Temp - Data from Weather API', data.main.temp);
+        console.log('client Temp - Data from Weather API', data.main.humidity);
+        console.log('client Wind - Data from Weather API', data.wind);
+        document.getElementById('temp').innerText = `Temprature: ${data.main.humidity}`
+        document.getElementById('humidity').innerText = `Humidity: ${data.main.temp}`
+        document.getElementById('wind').innerText = `Wind: speed (${data.wind.speed}) degree (${data.wind.deg})`
+
+
+    } catch(err){
+        console.log("Error: ", err);
+    }
+}
+
+getWeatherData();
+

@@ -1,5 +1,7 @@
 /* variables */
 :root{
+    --EarthyGreen : #7da27e;
+    --IcebergBlue: #75AEDC;
     --Lightred: hsl(356, 100%, 66%);
     --Verylightred: hsl(355, 100%, 74%);
     --Verydarkblue: hsl(208, 49%, 24%);
@@ -50,7 +52,7 @@ body{
 /* desktop style - base style */
 #intro-section{
     font-family: Overpass;
-    background: url('../assets/bg-pattern-intro-desktop.svg'), linear-gradient(var(--Verylightred), var(--Lightred));
+    background: url('../assets/bg-pattern-intro-desktop.svg'), linear-gradient(var(--EarthyGreen), var(--EarthyGreen));
     background-position: 35% 50%;
     padding-top: 50px;
     height: 550px;
@@ -74,7 +76,7 @@ a{
 #intro-section #logo{
     margin-right: 30px;
     grid-column: 3/4;
-    padding-top: 15px;
+    margin-top: -15px;
     /* height: 45px; */
 }
 header ul.dropdown{
@@ -91,13 +93,18 @@ header ul.menu-buttons{
 header ul{
     display: inline-block;
 }
-header ul li, .content ul li{
+header ul li, .weather-forecast ul li{
     list-style-type: none;
+    color: var(--Verydarkgrayishblue);
 }
 .content ul li{
     margin-top: 15px;
     margin-left: 20px;
     text-align: left;
+    color: var(--Verydarkgrayishblue);
+}
+.weather-forecast{
+    margin-top: 20px;
 }
 .dropdown{
     position: relative;
@@ -160,7 +167,7 @@ header ul li, .content ul li{
 
 .menu-buttons li:nth-child(2) button{
     background-color: var(--White);
-    color: var(--Verylightred);
+    color: var(--EarthyGreen);
 }
 
 .menu-buttons li:nth-child(2) button:hover{
@@ -191,22 +198,22 @@ header ul li, .content ul li{
 }
 .intro-content button:nth-child(3){
     border: 1px solid var(--White);
-    color: var(--Verylightred);
+    color: var(--EarthyGreen);
 }
 .intro-content button:nth-child(3):hover{
-    border-color: var(--Verylightred);
-    background-color: var(--Verylightred);
+    border-color: var(--EarthyGreen);
+    background-color: var(--EarthyGreen);
     color: var(--White);
 }
 .intro-content button:nth-child(4){
     border:1px solid var(--White);
-    background-color: var(--Verylightred);
+    background-color: var(--IcebergBlue);
     color: var(--White);
 }
 .intro-content button:nth-child(4):hover{
-    border-color: var(--Verylightred);
+    border-color: var(--EarthyGreen);
     background-color: var(--White);
-    color: var(--Verylightred);
+    color: var(--EarthyGreen);
 }
 p{
     line-height: 2;
@@ -284,9 +291,12 @@ p{
     position: relative;
     left: -35%;
 }
-#feature div h2{
+#feature div h1, #feature div h2{
     color: var(--Verydarkblue);
-    padding-top: 70px;
+    padding-top: 50px;
+}
+#feature div h1{
+    color: gray;
 }
 #feature div p{
     padding-top: 30px;
@@ -294,19 +304,19 @@ p{
 
 }
 
-footer{
+/* footer{
     height: 300px;
     background-color: var(--Verydarkblackblue);
     color: var(--White);
     font-weight: 400;
     font-family: Overpass;
-}
-footer img{
+} */
+/* footer img{
     grid-column: 2/4;
     grid-row: 1;
     padding-top: 40px;
-}
-footer ul{
+} */
+/* footer ul{
     grid-column: span 3;
     grid-row: 1;
     padding-top: 50px;
@@ -324,7 +334,7 @@ footer ul li:first-child{
 }
 footer ul li img{
     display: none;
-}
+} */
 /* tablet style */
 @media only screen and (max-width:960px){
     header.grid-container ul{
@@ -386,7 +396,7 @@ footer ul li img{
     }
     .smallMenuContent.show ul.menu-buttons li:nth-child(2) button{
         color: var(--White);
-        background-color: var(--Verylightred);
+        background-color: var(--EarthyGreen);
     }
     .smallMenuContent.show ul.dropdown:hover{
         color: gray;
@@ -482,7 +492,7 @@ footer ul li img{
 /* mobile style */
 @media only screen and (max-width: 375px){
     #intro-section{
-        background: url('../assets/bg-pattern-intro-mobile.svg'), linear-gradient(var(--Verylightred), var(--Lightred));
+        background: url('../assets/bg-pattern-intro-mobile.svg'), linear-gradient(var(--EarthyGreen), var(--EarthyGreen));
         background-position: 40% 30%;
     }
     .intro-content h1{
@@ -579,6 +589,7 @@ footer ul li img{
         font-family: Overpass;
         border-top-right-radius: 70px;
         text-align: center;
+        padding: 10px 30px;
     }
     footer img{
         grid-column: 5/9;
