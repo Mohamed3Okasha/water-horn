@@ -64,14 +64,15 @@ const getWeatherData = async ()=> {
     const res = await fetch(baseUrl+zipCode+apiKey);
     try {
         data = await res.json();
-        console.log('client Temp - Data from Weather API', data.main.temp);
-        console.log('client Temp - Data from Weather API', data.main.humidity);
-        console.log('client Wind - Data from Weather API', data.wind);
-        document.getElementById('temp').innerText = `Temprature: ${data.main.humidity}`
-        document.getElementById('humidity').innerText = `Humidity: ${data.main.temp}`
-        document.getElementById('wind').innerText = `Wind: speed (${data.wind.speed}) degree (${data.wind.deg})`
+        if(data.main.temp){
 
-
+            console.log('client Temp - Data from Weather API', data.main.temp);
+            console.log('client Temp - Data from Weather API', data.main.humidity);
+            console.log('client Wind - Data from Weather API', data.wind);
+            document.getElementById('temp').innerText = `Temprature: ${data.main.humidity}`
+            document.getElementById('humidity').innerText = `Humidity: ${data.main.temp}`
+            document.getElementById('wind').innerText = `Wind: speed (${data.wind.speed}) degree (${data.wind.deg})`
+        }
     } catch(err){
         console.log("Error: ", err);
     }
